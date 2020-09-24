@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.characters {
+    display: grid;
+    grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+}
+
+.character {
+    margin: 1em;
+}
+
+.character img {
+    width: 100%;
+}

@@ -7,7 +7,7 @@ fetch('https://rickandmortyapi.com/api/character')
             results: characters
         } = res;
         characters.forEach(character => {
-                document.querySelector('.results').innerHTML += `
+                document.querySelector('.characters').innerHTML += `
             <div class="character">
             <h3>${character.name}</h3>
             <img src="${character.image}" alt="${character.name}"/>
