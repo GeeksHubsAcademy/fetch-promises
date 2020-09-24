@@ -1,12 +1,14 @@
-fetch('https://rickandmortyapi.com/api/character')
-    .then(res => res.json())
-    .then(res => {
-        console.log(res, typeof res)
+const spinner = document.querySelector('.spinner');
+const getCharacters = () => {
+    spinner.style.display = 'block';
+    fetch('https://rickandmortyapi.com/api/character')
+        .then(res => res.json())
+        .then(res => {
             // const characters = res.results;
-        const {
-            results: characters
-        } = res;
-        characters.forEach(character => {
+            const {
+                results: characters
+            } = res;
+            characters.forEach(character => {
                 document.querySelector('.characters').innerHTML += `
             <div class="character">
             <h3>${character.name}</h3>
@@ -14,21 +16,7 @@ fetch('https://rickandmortyapi.com/api/character')
             </div>
             `
             })
-            // for (const character of characters) {
-            //     document.querySelector('.results').innerHTML += `
-            //     <div class="character">
-            //     <h3>${character.name}</h3>
-            //     </div>
-            //     `
-            // }
-            // for (let i = 0; i < characters.length; i++) {
-            //     const character = characters[i];
-            //     document.querySelector('.results').innerHTML += `
-            //     <div class="character">
-            //     <h3>${character.name}</h3>
-            //     </div>
-            //     `
-            // }
-    })
-    .catch(error => console.error(error));
-console.log('fetching data')
+        })
+        .catch(error => console.error(error))
+        .finally(() => spinner.style.display = 'none');
+}
