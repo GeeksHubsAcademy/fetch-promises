@@ -138,3 +138,13 @@
 .spinner {
     display: none;
 }
+
+.charactersSelected1 {
+    display: flex;
+    background-color: rgb(255, 140, 140);
+}
+
+.charactersSelected2 {
+    display: flex;
+    background-color: rgb(140, 232, 255);
+}
