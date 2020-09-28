@@ -1,7 +1,3 @@
-const spinner = document.querySelector('.spinner');
-const charactersSelected1Div = document.querySelector('.charactersSelected1');
-const charactersSelected2Div = document.querySelector('.charactersSelected2');
-const charactersDiv = document.querySelector('.characters')
 const selectCharacter = (characterId) => {
     const characterSelected = document.getElementById(characterId);
     if (charactersSelected1Div.childElementCount < 3) {
@@ -33,13 +29,10 @@ const renderCharacters = (characters = []) => {
 const getCharacters = async() => {
     spinner.style.display = 'block';
     try {
-        let res = await fetch('https://rickandmortyapi.com/api/character');
-        // let res = await fetch('characters.json');
+        let res = await fetch('characters.json');
         res = await res.json();
         // const characters = res.results;
-        const {
-            results: characters
-        } = res;
+        const { results: characters } = res;
         renderCharacters(characters);
     } catch (error) {
         console.error(error)
